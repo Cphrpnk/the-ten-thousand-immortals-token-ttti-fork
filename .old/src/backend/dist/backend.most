@@ -1,0 +1,664 @@
+// Version: 4.0.0
+type AccessControlState__201339279 =
+  {
+    var adminAssigned : Bool;
+    userRoles : Map__230067015<Principal, UserRole__91647283>
+  };
+type Account__143947045 =
+  {owner : Principal__873421814; subaccount : ?Subaccount__15526246};
+type Account__308924489 =
+  {owner : Principal__873421814; subaccount : ?Subaccount__645152844};
+type Account__554238307 =
+  {owner : Principal__873421814; subaccount : ?Subaccount__729448954};
+type Account__559776022 = Account__878336994;
+type Account__560697346 = Account__559776022;
+type Account__632738985 =
+  {owner : Principal__873421814; subaccount : ?Subaccount__163195774};
+type Account__685102643 = Account__560697346;
+type Account__792092074 = Account__878336994;
+type Account__825548430 =
+  {owner : Principal__873421814; subaccount : ?Subaccount__227579112};
+type Account__878336994 =
+  {owner : Principal; subaccount : ?Subaccount__445559905};
+type Account__890828910 =
+  {owner : Principal__873421814; subaccount : ?Subaccount__559718560};
+type Approval__336607368 = {amount : Nat; expires_at : ?Nat64};
+type Approval__352496461 = {amount : Nat; expires_at : ?Nat64};
+type Approval__789423910 = {amount : Nat; expires_at : ?Timestamp__738474649};
+type Approval__811392058 = Approval__789423910;
+type ConversionStatus__236425920 = {#completed; #failed};
+type ConversionStatus__507580049 = {#completed; #failed};
+type ConversionStatus__513116124 = {#completed; #failed};
+type ConversionStatus__60800809 = {#completed; #failed};
+type ConversionStatus__815607781 =
+  {#completed; #failed; #refundFailed; #refunded};
+type Conversion__1046063593 =
+  {
+    depositor : Principal__873421814;
+    icpAmount : Nat;
+    id : Nat;
+    recipient : Account__554238307;
+    status : ConversionStatus__507580049;
+    timestamp : Nat64;
+    tttiAmount : Nat
+  };
+type Conversion__1057466941 =
+  {
+    depositor : Principal__873421814;
+    icpAmount : Nat;
+    id : Nat;
+    recipient : Account__890828910;
+    status : ConversionStatus__513116124;
+    timestamp : Nat64;
+    tttiAmount : Nat
+  };
+type Conversion__26704354 =
+  {
+    depositor : Principal__873421814;
+    icpAmount : Nat;
+    id : Nat;
+    recipient : Account__308924489;
+    status : ConversionStatus__236425920;
+    timestamp : Nat64;
+    tttiAmount : Nat
+  };
+type Conversion__512319565 = Conversion__554911646;
+type Conversion__554911646 =
+  {
+    depositor : Principal;
+    forward : ForwardStatus__342742149;
+    fromCollector : Nat;
+    icpAmount : Nat;
+    id : Nat;
+    message : ?Text;
+    minted : Nat;
+    priceUsdE8 : Nat;
+    recipient : Account__560697346;
+    status : ConversionStatus__815607781;
+    timestamp : Timestamp__807882141;
+    tttiAmount : Nat;
+    usedFallback : Bool
+  };
+type Conversion__763883867 =
+  {
+    depositor : Principal__873421814;
+    icpAmount : Nat;
+    id : Nat;
+    recipient : Account__632738985;
+    status : ConversionStatus__60800809;
+    timestamp : Nat64;
+    tttiAmount : Nat
+  };
+type Data__44217153<K, V> = {var count : Nat__227979830; kvs : [var ?(K, V)]};
+type DedupEntry__189321992 = DedupEntry__531753304;
+type DedupEntry__282107834 = {ledgerTime : Nat64; txHash : Blob};
+type DedupEntry__531753304 =
+  {ledgerTime : Timestamp__738474649; txHash : Blob};
+type ExternalBlob__220559234 = Blob;
+type ForwardStatus__342742149 =
+  {#failed : Text; #forwarded : Nat; #notRequired; #pending};
+type ForwardStatus__476166089 =
+  {#failed : Text; #forwarded : Nat; #notRequired; #pending};
+type Internal__283199666<K, V> =
+  {children : [var ?Node__204828119<K, V>]; data : Data__44217153<K, V>};
+type Leaf__598469445<K, V> = {data : Data__44217153<K, V>};
+type LedgerState__1008981444 =
+  {var fee : Nat; var nextBlockIndex : Nat; var totalSupply : Nat};
+type LedgerState__1065726893 =
+  {var fee : Nat; var nextBlockIndex : Nat; var totalSupply : Nat};
+type LedgerState__158245365 =
+  {
+    var fee : Nat;
+    var lastBlockHash : ?Blob;
+    legacyBlockBoundary : Nat;
+    var nextBlockIndex : Nat;
+    var totalSupply : Nat;
+    var transfersFrozen : Bool
+  };
+type LedgerState__173539949 =
+  {
+    var fee : Nat;
+    var lastBlockHash : ?Blob;
+    legacyBlockBoundary : Nat;
+    var nextBlockIndex : Nat;
+    var totalSupply : Nat;
+    var transfersFrozen : Bool
+  };
+type LedgerState__231860251 =
+  {var fee : Nat; var nextBlockIndex : Nat; var totalSupply : Nat};
+type LedgerState__262371311 =
+  {var fee : Nat; var nextBlockIndex : Nat; var totalSupply : Nat};
+type LedgerState__774743968 = LedgerState__173539949;
+type LedgerState__776929738 =
+  {var fee : Nat; var nextBlockIndex : Nat; var totalSupply : Nat};
+type Ledger__1004794889 =
+  {
+    approvals :
+      Map__230067015<Account__632738985,
+                      Map__230067015<Account__632738985,
+                                      {amount : Nat; expires_at : ?Nat64}>>;
+    balances : Map__230067015<Account__632738985, Nat>;
+    blocks : Map__230067015<Nat, Value__326212120>;
+    state : LedgerState__262371311
+  };
+type Ledger__1032815789 =
+  {
+    approvals :
+      Map__230067015<Account__825548430,
+                      Map__230067015<Account__825548430, Approval__352496461>>;
+    balances : Map__230067015<Account__825548430, Nat>;
+    blocks : Map__230067015<Nat, Value__590778865>;
+    dedup : Map__230067015<Blob, Nat>;
+    dedupQueue : Map__230067015<Nat, DedupEntry__282107834>;
+    state : LedgerState__158245365
+  };
+type Ledger__223159663 =
+  {
+    approvals :
+      Map__230067015<Account__554238307,
+                      Map__230067015<Account__554238307,
+                                      {amount : Nat; expires_at : ?Nat64}>>;
+    balances : Map__230067015<Account__554238307, Nat>;
+    blocks : Map__230067015<Nat, Value__107996382>;
+    state : LedgerState__1008981444
+  };
+type Ledger__429982403 =
+  {
+    approvals :
+      Map__230067015<Account__308924489,
+                      Map__230067015<Account__308924489,
+                                      {amount : Nat; expires_at : ?Nat64}>>;
+    balances : Map__230067015<Account__308924489, Nat>;
+    blocks : Map__230067015<Nat, Value__811823982>;
+    state : LedgerState__776929738
+  };
+type Ledger__698164214 =
+  {
+    approvals :
+      Map__230067015<Account__143947045,
+                      Map__230067015<Account__143947045,
+                                      {amount : Nat; expires_at : ?Nat64}>>;
+    balances : Map__230067015<Account__143947045, Nat>;
+    blocks : Map__230067015<Nat, Value__994528149>;
+    state : LedgerState__231860251
+  };
+type Ledger__769435002 =
+  {
+    approvals :
+      Map__230067015<Account__890828910,
+                      Map__230067015<Account__890828910, Approval__336607368>>;
+    balances : Map__230067015<Account__890828910, Nat>;
+    blocks : Map__230067015<Nat, Value__1043881818>;
+    var merkleLeaves : [Blob];
+    state : LedgerState__1065726893
+  };
+type Map__230067015<K, V> = Map__405889023<K, V>;
+type Map__334413012<K, V> = {root : Tree__4145630<K, V>; size : Nat};
+type Map__405889023<K, V> = Map__603270868<K, V>;
+type Map__603270868<K, V> =
+  {var root : Node__204828119<K, V>; var size : Nat__227979830};
+type Nat__227979830 = Nat__920180692;
+type Nat__920180692 = Nat;
+type NewActor__120689860 =
+  {documentState : {var original : ?OriginalDocument__953243603}};
+type NewActor__159190963 =
+  {
+    accessControlState : AccessControlState__201339279;
+    ledger : NewLedger__841630126;
+    oracle : OracleStore__579406117;
+    profileState : ProfileState__740725293;
+    treasury : TreasuryStore__458048321
+  };
+type NewActor__270042225 =
+  {
+    accessControlState : AccessControlState__201339279;
+    ledger : Ledger__223159663;
+    profileState : ProfileState__3078571;
+    treasury : TreasuryStore__121785760
+  };
+type NewActor__361456438 =
+  {
+    accessControlState : AccessControlState__201339279;
+    ledger : NewLedger__1049154349;
+    oracle : NewOracleStore__485502020;
+    presale : PresaleStore__532252315;
+    profileState : ProfileState__373763411;
+    treasury : NewTreasuryStore__955936463
+  };
+type NewActor__563741893 =
+  {
+    accessControlState : AccessControlState__201339279;
+    ledger : Ledger__698164214;
+    purchaseState : PurchaseState__264217305;
+    stripeConfig : StripeState__306725899
+  };
+type NewActor__762989551 =
+  {
+    accessControlState : AccessControlState__201339279;
+    ledger : Ledger__1004794889;
+    oracle : OracleStore__574669753;
+    profileState : ProfileState__867357044;
+    treasury : NewTreasuryStore__260460648
+  };
+type NewActor__947145178 = {ledger : Ledger__1032815789};
+type NewConversionStatus__853878522 =
+  {#completed; #failed; #refundFailed; #refunded};
+type NewConversion__466633162 =
+  {
+    depositor : Principal__873421814;
+    forward : ForwardStatus__476166089;
+    fromCollector : Nat;
+    icpAmount : Nat;
+    id : Nat;
+    message : ?Text;
+    minted : Nat;
+    priceUsdE8 : Nat;
+    recipient : Account__890828910;
+    status : NewConversionStatus__853878522;
+    timestamp : Nat64;
+    tttiAmount : Nat;
+    usedFallback : Bool
+  };
+type NewLedgerState__882849655 =
+  {
+    var fee : Nat;
+    legacyBlockBoundary : Nat;
+    var nextBlockIndex : Nat;
+    var totalSupply : Nat;
+    var transfersFrozen : Bool
+  };
+type NewLedger__1049154349 =
+  {
+    approvals :
+      Map__230067015<Account__890828910,
+                      Map__230067015<Account__890828910, Approval__336607368>>;
+    balances : Map__230067015<Account__890828910, Nat>;
+    blocks : Map__230067015<Nat, Value__1043881818>;
+    var merkleLeaves : [Blob];
+    state : NewLedgerState__882849655
+  };
+type NewLedger__841630126 =
+  {
+    approvals :
+      Map__230067015<Account__308924489,
+                      Map__230067015<Account__308924489,
+                                      {amount : Nat; expires_at : ?Nat64}>>;
+    balances : Map__230067015<Account__308924489, Nat>;
+    blocks : Map__230067015<Nat, Value__811823982>;
+    var merkleLeaves : [Blob];
+    state : LedgerState__776929738
+  };
+type NewOracleStore__485502020 =
+  {
+    var source : PriceSource__248340097;
+    var updatedAt : Nat64;
+    var usdE8 : Nat
+  };
+type NewTreasuryConfig__874150525 =
+  {
+    icpAccount : Account__632738985;
+    marginBps : Nat;
+    mode : TreasuryMode__381924399;
+    rate : Nat
+  };
+type NewTreasuryStore__260460648 =
+  {
+    var config : ?NewTreasuryConfig__874150525;
+    var conversions : Map__230067015<Nat, Conversion__763883867>;
+    var depositRecipients :
+      Map__230067015<Principal__873421814, Account__632738985>;
+    var nextConversionId : Nat;
+    var onRampLinks : [OnRampLink__64928899]
+  };
+type NewTreasuryStore__955936463 =
+  {
+    var config : ?TreasuryConfig__795809273;
+    var conversions : Map__230067015<Nat, NewConversion__466633162>;
+    var depositRecipients :
+      Map__230067015<Principal__873421814, Account__890828910>;
+    var nextConversionId : Nat;
+    var onRampLinks : [OnRampLink__58976119]
+  };
+type Node__204828119<K, V> =
+  {#internal : Internal__283199666<K, V>; #leaf : Leaf__598469445<K, V>};
+type OldAccessControlState__468056110 =
+  {
+    var adminAssigned : Bool;
+    var userRoles :
+      Map__334413012<Principal__873421814, OldUserRole__383847215>
+  };
+type OldActor__1067511745 =
+  {
+    accessControlState : AccessControlState__201339279;
+    ledger : Ledger__429982403;
+    oracle : OracleStore__579406117;
+    profileState : ProfileState__740725293;
+    treasury : TreasuryStore__458048321
+  };
+type OldActor__288103442 =
+  {
+    accessControlState : AccessControlState__201339279;
+    ledger : Ledger__223159663;
+    purchaseState : PurchaseState__870456777;
+    stripeConfig : StripeState__1066089021
+  };
+type OldActor__325662370 =
+  {
+    var accessControlState : OldAccessControlState__468056110;
+    var balances : Map__334413012<Principal__873421814, Nat>;
+    var decimals : Nat;
+    var maxSupply : Nat;
+    var purchaseOrders : Map__334413012<Text, OldPurchaseOrder__42211440>;
+    var stripeConfig : ?StripeConfiguration__338910896;
+    var tokenName : Text;
+    var tokenSymbol : Text;
+    var totalSupply : Nat;
+    var transactionCount : Nat;
+    var transactions : Map__334413012<Nat, OldTransaction__797686514>;
+    var userProfiles :
+      Map__334413012<Principal__873421814, OldUserProfile__537690355>
+  };
+type OldActor__646472969 = {ledger : OldLedger__977773560};
+type OldActor__659015430 = {};
+type OldActor__805451794 =
+  {
+    accessControlState : AccessControlState__201339279;
+    ledger : Ledger__1004794889;
+    profileState : ProfileState__867357044;
+    treasury : TreasuryStore__416531997
+  };
+type OldActor__891690235 =
+  {
+    accessControlState : AccessControlState__201339279;
+    ledger : Ledger__769435002;
+    oracle : OracleStore__22514554;
+    profileState : ProfileState__373763411;
+    treasury : TreasuryStore__1019697753
+  };
+type OldLedgerState__237190123 =
+  {
+    var fee : Nat;
+    legacyBlockBoundary : Nat;
+    var nextBlockIndex : Nat;
+    var totalSupply : Nat;
+    var transfersFrozen : Bool
+  };
+type OldLedger__977773560 =
+  {
+    approvals :
+      Map__230067015<Account__825548430,
+                      Map__230067015<Account__825548430, Approval__352496461>>;
+    balances : Map__230067015<Account__825548430, Nat>;
+    blocks : Map__230067015<Nat, OldValue__644731366>;
+    var merkleLeaves : [Blob];
+    state : OldLedgerState__237190123
+  };
+type OldOrderStatus__423849351 = {#completed; #failed; #pending};
+type OldPurchaseOrder__42211440 =
+  {
+    amount : Nat;
+    buyer : Principal__873421814;
+    sessionId : Text;
+    status : OldOrderStatus__423849351;
+    timestamp : Nat64
+  };
+type OldTransaction__797686514 =
+  {
+    amount : Nat;
+    fee : Nat;
+    from : Principal__873421814;
+    timestamp : Nat64;
+    to : Principal__873421814
+  };
+type OldUserProfile__537690355 = {name : Text};
+type OldUserRole__383847215 = {#admin; #guest; #user};
+type OldValue__644731366 =
+  {#blob : Blob; #int : Int; #nat : Nat; #nat8 : Nat8; #text : Text};
+type OnRampLink__293494408 = {name : Text; url : Text};
+type OnRampLink__456373343 = OnRampLink__640914248;
+type OnRampLink__58976119 = {name : Text; url : Text};
+type OnRampLink__640882184 = {name : Text; url : Text};
+type OnRampLink__640914248 = {name : Text; url : Text};
+type OnRampLink__64928899 = {name : Text; url : Text};
+type OracleStore__22514554 = {var updatedAt : Nat64; var usdMicro : Nat};
+type OracleStore__574669753 = {var updatedAt : Nat64; var usdMicro : Nat};
+type OracleStore__579406117 = {var updatedAt : Nat64; var usdMicro : Nat};
+type OrderStatus__377988630 = {#completed; #failed; #pending};
+type OriginalDocument__428401084 =
+  {blob : ExternalBlob__220559234; filename : Text; mimeType : Text};
+type OriginalDocument__953243603 =
+  {blob : Blob; filename : Text; mimeType : Text};
+type PresaleStore__532252315 =
+  {
+    var fallbackEnabled : Bool;
+    var reserved : Nat;
+    var salesPaused : Bool;
+    var sold : Nat
+  };
+type PriceSource__16367523 = {#coinbase; #coingecko; #none};
+type PriceSource__248340097 = {#coinbase; #coingecko; #none};
+type PriceSource__337370088 = PriceSource__16367523;
+type Principal__224692764 = Principal;
+type Principal__873421814 = Principal__224692764;
+type ProfileState__3078571 =
+  {profiles : Map__230067015<Principal__873421814, UserProfile__16646516>};
+type ProfileState__373763411 =
+  {profiles : Map__230067015<Principal__873421814, UserProfile__4634052>};
+type ProfileState__740725293 =
+  {profiles : Map__230067015<Principal__873421814, UserProfile__438051674>};
+type ProfileState__867357044 =
+  {profiles : Map__230067015<Principal__873421814, UserProfile__541830397>};
+type PurchaseOrder__231731364 =
+  {
+    amount : Nat;
+    buyer : Principal__873421814;
+    sessionId : Text;
+    status : {#completed; #failed; #pending};
+    timestamp : Nat64
+  };
+type PurchaseOrder__638332265 =
+  {
+    amount : Nat;
+    buyer : Principal__873421814;
+    sessionId : Text;
+    status : OrderStatus__377988630;
+    timestamp : Nat64
+  };
+type PurchaseState__264217305 =
+  {
+    orders : Map__230067015<Text, PurchaseOrder__638332265>;
+    profiles : Map__230067015<Principal__873421814, UserProfile__296944677>
+  };
+type PurchaseState__870456777 =
+  {
+    orders : Map__230067015<Text, PurchaseOrder__231731364>;
+    profiles : Map__230067015<Principal__873421814, UserProfile__16646516>
+  };
+type StripeConfiguration__338910896 =
+  {allowedCountries : [Text]; secretKey : Text};
+type StripeConfiguration__429281337 =
+  {allowedCountries : [Text]; secretKey : Text};
+type StripeState__1066089021 =
+  {var configuration : ?StripeConfiguration__429281337};
+type StripeState__306725899 =
+  {var configuration : ?StripeConfiguration__338910896};
+type Subaccount__15526246 = Blob;
+type Subaccount__163195774 = Blob;
+type Subaccount__227579112 = Blob;
+type Subaccount__445559905 = Blob;
+type Subaccount__559718560 = Blob;
+type Subaccount__645152844 = Blob;
+type Subaccount__729448954 = Blob;
+type Timestamp__301639476 = Nat64;
+type Timestamp__738474649 = Timestamp__301639476;
+type Timestamp__807882141 = Timestamp__301639476;
+type TreasuryConfig__1009939816 = TreasuryConfig__240357009;
+type TreasuryConfig__192066767 =
+  {
+    icpAccount : Account__554238307;
+    mode : TreasuryMode__606516694;
+    rate : Nat
+  };
+type TreasuryConfig__240357009 =
+  {
+    icpAccount : Account__560697346;
+    marginBps : Nat;
+    mode : TreasuryMode__644666266;
+    rate : Nat
+  };
+type TreasuryConfig__570292014 =
+  {
+    icpAccount : Account__308924489;
+    marginBps : Nat;
+    mode : TreasuryMode__89342317;
+    rate : Nat
+  };
+type TreasuryConfig__795809273 =
+  {
+    icpAccount : Account__890828910;
+    marginBps : Nat;
+    mode : TreasuryMode__181759714;
+    rate : Nat
+  };
+type TreasuryConfig__960830770 =
+  {
+    icpAccount : Account__632738985;
+    mode : TreasuryMode__381924399;
+    rate : Nat
+  };
+type TreasuryMode__181759714 = {#auto; #manual};
+type TreasuryMode__381924399 = {#auto; #manual};
+type TreasuryMode__606516694 = {#auto; #manual};
+type TreasuryMode__644666266 = {#auto; #manual};
+type TreasuryMode__89342317 = {#auto; #manual};
+type TreasuryStore__1019697753 =
+  {
+    var config : ?TreasuryConfig__795809273;
+    var conversions : Map__230067015<Nat, Conversion__1057466941>;
+    var depositRecipients :
+      Map__230067015<Principal__873421814, Account__890828910>;
+    var nextConversionId : Nat;
+    var onRampLinks : [OnRampLink__58976119]
+  };
+type TreasuryStore__121785760 =
+  {
+    var config : ?TreasuryConfig__192066767;
+    var conversions : Map__230067015<Nat, Conversion__1046063593>;
+    var depositRecipients :
+      Map__230067015<Principal__873421814, Account__554238307>;
+    var nextConversionId : Nat;
+    var onRampLinks : [OnRampLink__293494408]
+  };
+type TreasuryStore__416531997 =
+  {
+    var config : ?TreasuryConfig__960830770;
+    var conversions : Map__230067015<Nat, Conversion__763883867>;
+    var depositRecipients :
+      Map__230067015<Principal__873421814, Account__632738985>;
+    var nextConversionId : Nat;
+    var onRampLinks : [OnRampLink__64928899]
+  };
+type TreasuryStore__458048321 =
+  {
+    var config : ?TreasuryConfig__570292014;
+    var conversions : Map__230067015<Nat, Conversion__26704354>;
+    var depositRecipients :
+      Map__230067015<Principal__873421814, Account__308924489>;
+    var nextConversionId : Nat;
+    var onRampLinks : [OnRampLink__640882184]
+  };
+type Tree__4145630<K, V> =
+  {
+    #black : (Tree__4145630<K, V>, K, V, Tree__4145630<K, V>);
+    #leaf;
+    #red : (Tree__4145630<K, V>, K, V, Tree__4145630<K, V>)
+  };
+type UserProfile__129828592 = {name : Text};
+type UserProfile__16646516 = {name : Text};
+type UserProfile__296944677 = {name : Text};
+type UserProfile__438051674 = {name : Text};
+type UserProfile__4634052 = {name : Text};
+type UserProfile__541830397 = {name : Text};
+type UserProfile__72682257 = UserProfile__129828592;
+type UserRole__91647283 = {#admin; #guest; #user};
+type Value__1002656402 =
+  {
+    #Array : [Value__1002656402];
+    #Blob : Blob;
+    #Int : Int;
+    #Map : [(Text, Value__1002656402)];
+    #Nat : Nat;
+    #Text : Text
+  };
+type Value__1043881818 =
+  {#blob : Blob; #int : Int; #nat : Nat; #nat8 : Nat8; #text : Text};
+type Value__107996382 =
+  {#blob : Blob; #int : Int; #nat : Nat; #nat8 : Nat8; #text : Text};
+type Value__326212120 =
+  {#blob : Blob; #int : Int; #nat : Nat; #nat8 : Nat8; #text : Text};
+type Value__590778865 =
+  {
+    #Array : [Value__590778865];
+    #Blob : Blob;
+    #Int : Int;
+    #Map : [(Text, Value__590778865)];
+    #Nat : Nat;
+    #Text : Text
+  };
+type Value__811823982 =
+  {#blob : Blob; #int : Int; #nat : Nat; #nat8 : Nat8; #text : Text};
+type Value__878602436 = Value__1002656402;
+type Value__994528149 =
+  {#blob : Blob; #int : Int; #nat : Nat; #nat8 : Nat8; #text : Text};
+{
+  "00000001_000000" : (old : OldActor__325662370) -> NewActor__563741893;
+  "20261009_220000" : (old : OldActor__288103442) -> NewActor__270042225;
+  "20261010_020000" : (old : OldActor__805451794) -> NewActor__762989551;
+  "20261010_030000" : (old : OldActor__1067511745) -> NewActor__159190963;
+  "20261013_000000" : (old : OldActor__891690235) -> NewActor__361456438;
+  "20261013_210000" : (old : OldActor__646472969) -> NewActor__947145178;
+  "20261016_000000" : (_old : OldActor__659015430) -> NewActor__120689860
+}
+actor  {
+  stable accessControlState :
+    {
+      var adminAssigned : Bool;
+      userRoles : Map__230067015<Principal, UserRole__91647283>
+    };
+  stable documentState : {var original : ?OriginalDocument__428401084};
+  stable ledger :
+    {
+      approvals :
+        Map__230067015<Account__792092074,
+                        Map__230067015<Account__792092074,
+                                        Approval__811392058>>;
+      balances : Map__230067015<Account__792092074, Nat>;
+      blocks : Map__230067015<Nat, Value__878602436>;
+      dedup : Map__230067015<Blob, Nat>;
+      dedupQueue : Map__230067015<Nat, DedupEntry__189321992>;
+      state : LedgerState__774743968
+    };
+  stable oracle :
+    {
+      var source : PriceSource__337370088;
+      var updatedAt : Nat64;
+      var usdE8 : Nat
+    };
+  stable presale :
+    {
+      var fallbackEnabled : Bool;
+      var reserved : Nat;
+      var salesPaused : Bool;
+      var sold : Nat
+    };
+  stable profileState :
+    {profiles : Map__230067015<Principal, UserProfile__72682257>};
+  stable treasury :
+    {
+      var config : ?TreasuryConfig__1009939816;
+      var conversions : Map__230067015<Nat, Conversion__512319565>;
+      var depositRecipients : Map__230067015<Principal, Account__685102643>;
+      var nextConversionId : Nat;
+      var onRampLinks : [OnRampLink__456373343]
+    }
+};

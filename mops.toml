@@ -1,0 +1,40 @@
+[package]
+name = "backend"
+version = "0.1.0"
+
+[build]
+outputDir = "src/backend/dist"
+args = [ "--release" ]
+check-wasm = true
+check-deploy = true
+
+[canisters.backend]
+main = "src/backend/main.mo"
+
+[canisters.backend.check-stable]
+path = ".old/src/backend/dist/backend.most"
+
+[canisters.backend.migrations]
+chain = "src/backend/migrations"
+check-limit = 1
+
+[toolchain]
+moc = "1.16.0"
+lintoko = "0.12.0"
+
+[lint]
+extends = [ "caffeineai-lints" ]
+
+[moc]
+args = [ "-E=M0254", "-W=M0235,M0223,M0236,M0237", "-A=M0241", "--default-persistent-actors", "--implicit-package=core", "-no-check-ir" ]
+
+[dependencies]
+core = "2.6.2"
+ic = "4.2.0"
+caffeineai-authorization = "1.0.1"
+caffeineai-lints = "0.1.1"
+caffeineai-oql = "0.8.0"
+base = "0.16.0"
+caffeineai-stripe = "1.0.0"
+caffeineai-http-outcalls = "0.1.4"
+caffeineai-object-storage = "1.1.1"

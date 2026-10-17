@@ -1,0 +1,353 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Fraunces";
+  src: url("/assets/fonts/Fraunces.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("/assets/fonts/Satoshi.woff2") format("woff2");
+  font-weight: 300 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/assets/fonts/JetBrainsMono.woff2") format("woff2");
+  font-display: swap;
+}
+
+@layer base {
+  /* Gold & Obsidian — restrained, open-surface refinement; dark is default. */
+  :root,
+  .dark {
+    --radius: 0.5rem;
+    --font-display: "Fraunces";
+    --font-body: "Satoshi";
+    --font-mono: "JetBrains Mono";
+
+    --background: 0.13 0.008 60;
+    --foreground: 0.94 0.025 85;
+    --card: 0.155 0.01 60;
+    --card-foreground: 0.94 0.025 85;
+    --popover: 0.16 0.012 60;
+    --popover-foreground: 0.94 0.025 85;
+    --primary: 0.79 0.13 82;
+    --primary-foreground: 0.15 0.02 60;
+    --secondary: 0.215 0.02 60;
+    --secondary-foreground: 0.9 0.04 82;
+    --muted: 0.19 0.012 60;
+    --muted-foreground: 0.7 0.035 78;
+    --accent: 0.63 0.1 58;
+    --accent-foreground: 0.13 0.01 60;
+    --destructive: 0.63 0.2 27;
+    --destructive-foreground: 0.97 0.015 85;
+    --success: 0.72 0.14 150;
+    --success-foreground: 0.14 0.02 150;
+    --warning: 0.75 0.15 55;
+    --warning-foreground: 0.15 0.02 55;
+    --border: 0.265 0.024 70;
+    --input: 0.28 0.028 65;
+    --ring: 0.79 0.13 82;
+    --chart-1: 0.79 0.13 82;
+    --chart-2: 0.63 0.1 58;
+    --chart-3: 0.88 0.05 85;
+    --chart-4: 0.68 0.14 68;
+    --chart-5: 0.55 0.06 95;
+    --sidebar: 0.16 0.012 60;
+    --sidebar-foreground: 0.94 0.025 85;
+    --sidebar-primary: 0.79 0.13 82;
+    --sidebar-primary-foreground: 0.15 0.02 60;
+    --sidebar-accent: 0.25 0.028 60;
+    --sidebar-accent-foreground: 0.9 0.04 82;
+    --sidebar-border: 0.265 0.024 70;
+    --sidebar-ring: 0.79 0.13 82;
+
+    --gradient-primary: linear-gradient(
+      135deg,
+      oklch(0.88 0.1 90),
+      oklch(0.78 0.14 80) 45%,
+      oklch(0.62 0.12 64)
+    );
+    --gradient-surface: linear-gradient(
+      160deg,
+      oklch(0.19 0.016 62),
+      oklch(0.13 0.008 60)
+    );
+    --gradient-gold-shimmer: linear-gradient(
+      110deg,
+      oklch(0.66 0.12 68) 0%,
+      oklch(0.8 0.14 82) 30%,
+      oklch(0.93 0.08 92) 50%,
+      oklch(0.8 0.14 82) 70%,
+      oklch(0.66 0.12 68) 100%
+    );
+    --glow-crest: radial-gradient(
+      closest-side,
+      oklch(0.79 0.13 82 / 0.32),
+      oklch(0.63 0.1 58 / 0.12) 55%,
+      transparent 100%
+    );
+    --pattern-opacity: 0.07;
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --space-section: 5rem;
+    --space-section-lg: 7rem;
+    --space-cluster: 2.5rem;
+    /* Document-only parchment: retain the site-wide dark identity. */
+    --reading-surface: 0.965 0.014 85;
+    --reading-ink: 0.22 0.025 60;
+    --reading-muted: 0.43 0.03 60;
+    --reading-rule: 0.85 0.025 80;
+    --reading-link: 0.43 0.1 70;
+  }
+
+  /* Optional parchment variant — warm ivory with antique gold & bronze. */
+  .light {
+    --background: 0.96 0.02 85;
+    --foreground: 0.2 0.025 60;
+    --card: 0.975 0.014 85;
+    --card-foreground: 0.2 0.025 60;
+    --popover: 0.985 0.012 85;
+    --popover-foreground: 0.2 0.025 60;
+    --primary: 0.54 0.115 70;
+    --primary-foreground: 0.99 0.01 85;
+    --secondary: 0.935 0.025 80;
+    --secondary-foreground: 0.3 0.04 60;
+    --muted: 0.94 0.02 82;
+    --muted-foreground: 0.47 0.035 65;
+    --accent: 0.5 0.09 55;
+    --accent-foreground: 0.98 0.012 85;
+    --destructive: 0.55 0.2 27;
+    --destructive-foreground: 0.98 0.012 85;
+    --success: 0.5 0.13 150;
+    --success-foreground: 0.98 0.012 150;
+    --warning: 0.58 0.15 55;
+    --warning-foreground: 0.99 0.01 85;
+    --border: 0.885 0.028 80;
+    --input: 0.86 0.035 80;
+    --ring: 0.54 0.115 70;
+    --chart-1: 0.54 0.115 70;
+    --chart-2: 0.5 0.09 55;
+    --chart-3: 0.7 0.12 82;
+    --chart-4: 0.4 0.06 60;
+    --chart-5: 0.62 0.08 95;
+    --sidebar: 0.94 0.022 84;
+    --sidebar-foreground: 0.2 0.025 60;
+    --sidebar-primary: 0.54 0.115 70;
+    --sidebar-primary-foreground: 0.99 0.01 85;
+    --sidebar-accent: 0.92 0.03 80;
+    --sidebar-accent-foreground: 0.3 0.04 60;
+    --sidebar-border: 0.885 0.028 80;
+    --sidebar-ring: 0.54 0.115 70;
+
+    --gradient-primary: linear-gradient(
+      135deg,
+      oklch(0.66 0.12 78),
+      oklch(0.54 0.115 70) 50%,
+      oklch(0.45 0.09 58)
+    );
+    --gradient-surface: linear-gradient(
+      160deg,
+      oklch(0.985 0.012 85),
+      oklch(0.94 0.025 82)
+    );
+    --gradient-gold-shimmer: linear-gradient(
+      110deg,
+      oklch(0.46 0.09 60) 0%,
+      oklch(0.56 0.12 72) 30%,
+      oklch(0.7 0.12 84) 50%,
+      oklch(0.56 0.12 72) 70%,
+      oklch(0.46 0.09 60) 100%
+    );
+    --glow-crest: radial-gradient(
+      closest-side,
+      oklch(0.75 0.12 82 / 0.35),
+      oklch(0.7 0.08 70 / 0.12) 55%,
+      transparent 100%
+    );
+    --pattern-opacity: 0.09;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body), sans-serif;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display), serif;
+    font-variation-settings: "opsz" 144, "SOFT" 0, "WONK" 0;
+    letter-spacing: 0.01em;
+  }
+  ::selection {
+    background: oklch(var(--primary) / 0.35);
+    color: oklch(var(--foreground));
+  }
+  .font-mono,
+  code,
+  pre,
+  .tabular-nums {
+    font-family: var(--font-mono), monospace;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display), serif;
+    font-variation-settings: "opsz" 144, "SOFT" 0, "WONK" 0;
+  }
+  /* Engraved Roman capitals for wordmark, hero and section titles */
+  .text-imperial {
+    font-family: var(--font-display), serif;
+    font-variation-settings: "opsz" 144, "SOFT" 0, "WONK" 0;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+  .text-gradient-gold {
+    background-image: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .bg-gold-shimmer {
+    background-image: var(--gradient-gold-shimmer);
+    background-size: 220% 100%;
+  }
+  /* Fine gold hairline divider, fades at both ends */
+  .divider-gold {
+    height: 1px;
+    width: 100%;
+    border: 0;
+    background-image: linear-gradient(
+      90deg,
+      transparent,
+      oklch(var(--primary) / 0.48) 50%,
+      transparent
+    );
+  }
+  .divider-gold-vertical {
+    width: 1px;
+    align-self: stretch;
+    background-image: linear-gradient(
+      180deg,
+      transparent,
+      oklch(var(--primary) / 0.42) 50%,
+      transparent
+    );
+  }
+  /* Soft radial glow placed behind the hero crest */
+  .glow-crest {
+    background-image: var(--glow-crest);
+  }
+  /* Faint imperial lattice texture for section backgrounds */
+  .bg-pattern-imperial {
+    background-image: radial-gradient(
+        oklch(var(--primary) / var(--pattern-opacity)) 1px,
+        transparent 1.5px
+      ),
+      repeating-linear-gradient(
+        45deg,
+        oklch(var(--primary) / calc(var(--pattern-opacity) * 0.45)) 0 1px,
+        transparent 1px 28px
+      ),
+      repeating-linear-gradient(
+        -45deg,
+        oklch(var(--primary) / calc(var(--pattern-opacity) * 0.45)) 0 1px,
+        transparent 1px 28px
+      );
+    background-size: 28px 28px, auto, auto;
+  }
+  .border-gold {
+    border-color: oklch(var(--primary) / 0.3);
+  }
+  .border-gold-strong {
+    border-color: oklch(var(--primary) / 0.7);
+  }
+  /* Layout primitives for an editorial alternative to nested cards. */
+  .surface-open {
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+  }
+  .section-breathing {
+    padding-block: var(--space-section);
+  }
+  .cluster-breathing {
+    gap: var(--space-cluster);
+  }
+  .rule-quiet {
+    border-top: 1px solid oklch(var(--border));
+  }
+  /* Opt-in document treatment; never change the site's default prose. */
+  .paper-sheet {
+    background: oklch(var(--reading-surface));
+    color: oklch(var(--reading-ink));
+    border: 1px solid oklch(var(--reading-rule));
+    border-radius: 4px;
+  }
+  .paper-prose {
+    max-width: 68ch;
+    font-family: var(--font-body), sans-serif;
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+  .paper-prose h2,
+  .paper-prose h3 {
+    color: oklch(var(--reading-ink));
+    line-height: 1.25;
+  }
+  .paper-prose a {
+    color: oklch(var(--reading-link));
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+  .paper-prose :is(a, button):focus-visible {
+    outline: 2px solid oklch(var(--reading-link));
+    outline-offset: 3px;
+  }
+  .paper-rule {
+    border-color: oklch(var(--reading-rule));
+  }
+  /* Factual status, not a celebratory badge. */
+  .token-identity-note {
+    border-inline-start: 2px solid oklch(var(--primary));
+    background: oklch(var(--card));
+    color: oklch(var(--foreground));
+  }
+  @media (min-width: 768px) {
+    .section-breathing {
+      padding-block: var(--space-section-lg);
+    }
+  }
+  .font-body {
+    font-family: var(--font-body), sans-serif;
+  }
+  .font-mono {
+    font-family: var(--font-mono), monospace;
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+  .bg-gradient-primary {
+    background-image: var(--gradient-primary);
+  }
+  .bg-gradient-surface {
+    background-image: var(--gradient-surface);
+  }
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+}

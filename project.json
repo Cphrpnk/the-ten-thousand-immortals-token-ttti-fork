@@ -1,0 +1,15 @@
+{
+  "overview": "A token information and purchase app with a white paper, wallet views, transaction history, and clear test-token details.",
+  "features": [
+    "Read the original white paper and a corrected edition",
+    "Confirm reading before purchasing the test token",
+    "View token information, wallet balances, and transaction history"
+  ],
+  "category": "token-app",
+  "tags": [
+    "token",
+    "white-paper",
+    "wallet"
+  ],
+  "last_updated": "2026-10-16T22:58:18.658Z"
+}
